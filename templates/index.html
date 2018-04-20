@@ -1,6 +1,17 @@
-<head>
-  <title>Youtube Converter</title>
-</head>
-<body>
-
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "head.html" %}
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <div class="container">
+      <div class="row">
+        {% include "welcome_card.html" %}
+        {% include "downloader_card.html" %}
+        {% include "mp4downloader_card.html" %}
+        {% include "footer.html" %}
+      </div>
+    </div>
+  </body>
+</html>
