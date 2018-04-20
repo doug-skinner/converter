@@ -40,9 +40,9 @@ mv static /var/www/html/
 mv templates /var/www/html/
 
 # Modify the ownership of the files so apache can read it
-chcon system_u:object_r:httpd_sys_rw_content_t:s0 /var/www/html/*
-chcon system_u:object_r:httpd_sys_rw_content_t:s0 /var/www/html/static/*
-chcon system_u:object_r:httpd_sys_rw_content_t:s0 /var/www/html/templates/*
+chcon unconfined_u:object_r:httpd_sys_rw_content_t:s0 /var/www/html/*
+chcon unconfined_u:object_r:httpd_sys_rw_content_t:s0 /var/www/html/static/*
+chcon unconfined_u:object_r:httpd_sys_rw_content_t:s0 /var/www/html/templates/*
 
 # Start apache
 systemctl start httpd
