@@ -30,6 +30,9 @@ yum install httpd mod_wsgi -y
 # Move the virtual host configuration file to where it needs to be
 mv vhost.conf /etc/httpd/conf.d/.
 
+# Modify the ownership of the config file so apache can read it
+chcon system_u:object_r:httpd_config_t:s0 /etc/httpd/conf.d/vhost.conf
+
 # Move the web files to the required directory
 mv app.py /var/www/html/
 mv app.wsgi /var/www/html/
