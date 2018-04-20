@@ -25,7 +25,7 @@ rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.
 yum install ffmpeg ffmpeg-devel -y
 
 # Install apache, the base web server that will sit in front of Flask
-yum install apache -y
+yum install httpd -y
 
 # Move the virtual host configuration file to where it needs to be
 mv vhost.conf /etc/httpd/conf.d/.
@@ -49,7 +49,7 @@ systemctl start firewalld
 systemctl enable firewalld
 
 # Allow port 80 through the firewall
-firewall-cmd --permanenet --add-service=http
+firewall-cmd --permanent --add-service=http
 
 # Reload the firewall with the new rule
 firewall-cmd --reload
