@@ -24,8 +24,8 @@ rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.
 # Install ffmpeg
 yum install ffmpeg ffmpeg-devel -y
 
-# Install apache, the base web server that will sit in front of Flask
-yum install httpd -y
+# Install apache, and mods, the base web server that will sit in front of Flask
+yum install httpd mod_wsgi -y
 
 # Move the virtual host configuration file to where it needs to be
 mv vhost.conf /etc/httpd/conf.d/.
