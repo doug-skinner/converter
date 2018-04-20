@@ -41,6 +41,8 @@ mv templates /var/www/html/
 
 # Modify the ownership of the files so apache can read it
 chcon system_u:object_r:httpd_config_t:s0 /var/www/html/*
+chcon system_u:object_r:httpd_config_t:s0 /var/www/html/static/*
+chcon system_u:object_r:httpd_config_t:s0 /var/www/html/templates/*
 
 # Start apache
 systemctl start httpd
