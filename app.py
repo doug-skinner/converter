@@ -16,7 +16,7 @@ def mp3():
     'forcefilename': True,
     'restrictfilenames': True,
 	'format': 'bestaudio/best',
-    'outtmpl': '%(id)s.%(ext)s',
+    'outtmpl': '/var/www/html/%(id)s.%(ext)s',
 	'postprocessors':
         [{
     	    'key': 'FFmpegExtractAudio',
@@ -42,7 +42,7 @@ def mp4():
     'forcefilename': True,
     'restrictfilenames': True,
 	'format': '137',
-    'outtmpl': '%(id)s.%(ext)s',
+    'outtmpl': '/var/www/html/%(id)s.%(ext)s',
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_url])
