@@ -31,7 +31,10 @@ def mp3():
 
 @app.route("/download_mp3/<path>", methods=['GET'])
 def download_mp3(path):
-    print path
+    path = path.replace('/', '').replace('?', '')
+    temp = path.split('.')
+    if len(temp) > 2 or temp[1] != '.mp3':
+        return 'invalid file'
     return send_from_directory('.', path)
 
 @app.route("/convert_mp4", methods=['POST'])
@@ -51,7 +54,10 @@ def mp4():
 
 @app.route("/download_mp4/<path>", methods=['GET'])
 def download_mp4(path):
-    print path
+    path = path.replace('/', '').replace('?', '')
+    temp = path.split('.')
+    if len(temp) > 2 or temp[1] != '.mp4':
+        return 'invalid file'
     return send_from_directory('.', path)
 
 if __name__ == "__main__":
