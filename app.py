@@ -33,7 +33,7 @@ def mp3():
 def download_mp3(path):
     path = path.replace('/', '').replace('?', '')
     temp = path.split('.')
-    if len(temp) > 2 or temp[1] != '.mp3':
+    if len(temp) > 2 or temp[1] != 'mp3':
         return 'invalid file'
     return send_from_directory('.', path)
 
@@ -56,7 +56,7 @@ def mp4():
 def download_mp4(path):
     path = path.replace('/', '').replace('?', '')
     temp = path.split('.')
-    if len(temp) > 2 or temp[1] != '.mp4':
+    if len(temp) > 2 or temp[1] != 'mp4':
         return 'invalid file'
     return send_from_directory('.', path)
 
