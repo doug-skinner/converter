@@ -44,7 +44,7 @@ def mp4():
     ydl_opts = {
     'forcefilename': True,
     'restrictfilenames': True,
-	'format': '137',
+	'format': '137/best',
     'outtmpl': '/var/www/html/%(id)s.%(ext)s',
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
