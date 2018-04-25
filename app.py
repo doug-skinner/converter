@@ -25,9 +25,9 @@ def mp3():
         }]
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([video_url])
+        info_dict = ydl.extract_info(video_url, download=True)
 
-    return (video_url.split('=')[1].split('&')[0] + '.mp3')
+    return infor_dict['display_id'] + '.mp3'
 
 @app.route("/download_mp3/<path>", methods=['GET'])
 def download_mp3(path):
@@ -48,9 +48,10 @@ def mp4():
     'outtmpl': '/var/www/html/%(id)s.%(ext)s',
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([video_url])
+        info_dict = ydl.extract_info(video_url, download=True)
 
-    return (video_url.split('=')[1].split('&')[0] + '.mp4')
+    return infor_dict['display_id'] + '.mp4'
+
 
 @app.route("/download_mp4/<path>", methods=['GET'])
 def download_mp4(path):
