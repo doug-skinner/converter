@@ -1,11 +1,23 @@
 from __future__ import unicode_literals
 from flask import Flask, render_template, request, send_from_directory
 import youtube_dl
+import os, re, time
 
 app = Flask(__name__)
 
+def purge(directory, pattern):
+    for f in os.listdir(directory):
+        if re.search(pattern, f) and (os.stat(f).st_mtime < time.time() - 3600):
+            os.remove(os.path.join(directory, f))
+
+    #purge('.', '[a-zA-Z0-9]*.mp4')
+
+
 @app.route("/")
 def index():
+    purge('.', '[a-zA-Z0-9]*.mp4')
+    purge('.', '[a-zA-Z0-9]*.mp3')
+
     return render_template('index.html')
 
 @app.route("/convert_mp3", methods=['POST'])
